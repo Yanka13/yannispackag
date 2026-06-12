@@ -26,7 +26,15 @@ jobs:
       with:
         platform: python
         platform-version: '3.11'
-    
+
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+    - name: Test with pytest
+      run: pytest tests/test_fast.py
+
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with: 
